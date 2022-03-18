@@ -40,6 +40,7 @@ public class Main {
             }
             arr[row][col]=0;
             return;
+            
         }
         dfs(row,col+1);
 
