@@ -27,11 +27,19 @@ public class Main {
         findB(N / 2, 0);
 
         Collections.sort(bSum);
+        for (int i = 0; i < aSum.size(); i++) {
+            System.out.println(aSum.get(i));
+        }
+        System.out.println("---------------");
+        for (int i = 0; i < bSum.size(); i++) {
+            System.out.println(bSum.get(i));
+        }
 
         for (int i = 0; i < aSum.size(); i++) {
             idx = -1;
             System.out.println("i= "+i);
             binarySearch(0, bSum.size() - 1, aSum.get(i));
+            System.out.println("idx = "+idx+"\n");
             cnt += idx + 1;
         }
         System.out.println(cnt);
@@ -70,7 +78,7 @@ public class Main {
             } else {
                 r = mid - 1;
             }
-            System.out.println(l+" "+mid+" "+r);
+            System.out.println(l+" "+mid+" "+r+" "+idx);
             System.out.println("-----------------");
         }
     }
