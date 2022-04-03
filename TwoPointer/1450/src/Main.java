@@ -26,9 +26,11 @@ public class Main {
         findA(0, 0);
         findB(N / 2, 0);
 
-        bSum.sort((i, j) -> (i - j));
+        Collections.sort(bSum);
+
         for (int i = 0; i < aSum.size(); i++) {
             idx = -1;
+            System.out.println("i= "+i);
             binarySearch(0, bSum.size() - 1, aSum.get(i));
             cnt += idx + 1;
         }
@@ -61,12 +63,15 @@ public class Main {
     static void binarySearch(int l, int r, int value) {
         while (l <= r) {
             int mid = (l + r) / 2;
+            System.out.println(l+" "+mid+" "+r);
             if (bSum.get(mid) + value <= C) {
                 idx = mid;
                 l = mid + 1;
             } else {
                 r = mid - 1;
             }
+            System.out.println(l+" "+mid+" "+r);
+            System.out.println("-----------------");
         }
     }
 
