@@ -23,11 +23,37 @@ public class Main {
             line[i][1] = b;
         }
 
-        Arrays.sort(line,new Comparator<int[]>(){
+        Arrays.sort(line, new Comparator<int[]>() {
             @Override
-            public int compare(int[] o1,int[] o2){
+            public int compare(int[] o1, int[] o2) {
                 return o1[0] - o2[0];
             }
         });
+
+        int max = 0;
+        for(int i=0;i<N;i++){
+            max=Math.max(max,chooseMax(i));
+        }
+
+        StringBuilder sb=new StringBuilder();
+        sb.append(N-max);
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
+        br.close();
+
+
+    }
+
+    static int chooseMax(int loc) {
+        if (cross[loc] == 0) {
+            cross[loc] = 1;
+            for (int i = loc + 1; i < N; i++) {
+                if (line[loc][1] < line[i][1]) {
+                    cross[loc] = Math.max(cross[loc], chooseMax(i) + 1);
+                }
+            }
+        }
+        return cross[loc];
     }
 }
