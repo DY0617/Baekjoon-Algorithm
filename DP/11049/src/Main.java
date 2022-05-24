@@ -32,6 +32,6 @@ public class Main {
             }
         }
 
-        System.out.println(dp[0][n]);
+        System.out.println(dp[1][n]);
     }
 }
