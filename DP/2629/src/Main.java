@@ -17,7 +17,7 @@ public class Main {
 
         st=new StringTokenizer(br.readLine());
 
-        for(int i=0;i<N1;i++){
+        for(int i=1;i<=N1;i++){
             arr[i]=Integer.parseInt(st.nextToken());
         }
 
