@@ -3,32 +3,50 @@ import java.io.*;
 
 public class Main {
 
-    static int N1,N2;//N1=추의 개수, N2=구슬의 개수
-    static int[] arr1,arr2;
-    static int[][] dp;
+    static int N1,N2,max=15000,question;//N1=추의 개수
+    static int[] arr;
+    static boolean[][] dp;
     static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
 
     public static void main(String[] args) throws IOException{
         StringTokenizer st=new StringTokenizer(br.readLine());
         N1= Integer.parseInt(st.nextToken());
-        arr1=new int[N1];
+        arr=new int[N1+1];
+        dp=new boolean[31][max+1];
 
         st=new StringTokenizer(br.readLine());
 
         for(int i=0;i<N1;i++){
-            arr1[i]=Integer.parseInt(st.nextToken());
+            arr[i]=Integer.parseInt(st.nextToken());
         }
 
-        st=new StringTokenizer(br.readLine());
-        N2= Integer.parseInt(st.nextToken());
-        arr2=new int[N2];
+        find_dp(0,0);
 
-        st=new StringTokenizer(br.readLine());
-
-        for(int i=0;i<N2;i++){
-            arr2[i]=Integer.parseInt(st.nextToken());
+        StringBuilder sb= new StringBuilder();
+        N2= Integer.parseInt(br.readLine());
+        st= new StringTokenizer(br.readLine());
+        for(int i=0; i<N2; i++) {
+            question= Integer.parseInt(st.nextToken());
+            if(question>15000)  sb.append("N ");
+            else sb.append(dp[N1][question]?"Y ":"N ");
         }
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
+        br.close();
+
 
     }
+
+    public static void find_dp(int idx, int weight) {
+        if(dp[idx][weight]) return;
+        dp[idx][weight]=true;
+        if(idx==N1) return;
+
+        find_dp(idx+1, weight+arr[idx+1]);
+        find_dp(idx+1, weight);
+        find_dp(idx+1, Math.abs(weight-arr[idx+1]));
+    }
+
 }
