@@ -17,17 +17,19 @@ public class Main {
         M = Integer.parseInt(st.nextToken());
 
         arr=new int[N+1][2];
-        dp=new int[N+1][100001];
+        dp=new int[N+1][10001];
 
         st = new StringTokenizer(br.readLine());
-        for(int i=0;i<N;i++){
+        for(int i=1;i<=N;i++){
             arr[i][0]=Integer.parseInt(st.nextToken());
         }
 
         st = new StringTokenizer(br.readLine());
-        for(int i=0;i<N;i++){
+        for(int i=1;i<=N;i++){
             arr[i][1]=Integer.parseInt(st.nextToken());
         }
+        Arrays.fill(dp,-1);
+
 
     }
 }
