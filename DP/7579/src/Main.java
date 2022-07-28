@@ -16,8 +16,8 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        arr=new int[N][2];
-        dp=new int[N][N];
+        arr=new int[N+1][2];
+        dp=new int[N+1][100001];
 
         st = new StringTokenizer(br.readLine());
         for(int i=0;i<N;i++){
