@@ -33,7 +33,7 @@ public class Main {
             }
 
             if(flag)
-                sb.append(a+" ");
+                sb.append(i+" ");
 
         }
 
