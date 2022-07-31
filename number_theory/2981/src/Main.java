@@ -26,8 +26,9 @@ public class Main {
         for (int i = 2; i < N; i++) {
             int a=gcd;
             int b = arr[i] - arr[i - 1];
+            int r=0;
             while (b != 0) {
-                int r = a % b;
+                r = a % b;
                 a = b;
                 b = r;
             }
@@ -56,8 +57,9 @@ public class Main {
         for(int val : list) {
             sb.append(val).append(' ');
         }
-
+        sb.append(gcd);
         System.out.println(sb.toString());
         br.close();
     }
+
 }
