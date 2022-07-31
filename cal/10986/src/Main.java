@@ -21,7 +21,7 @@ public class Main {
         long ans=arr[0];
         for(int i=0;i<M;i++){
             int n=arr[i];
-            ans+=(long)n*(n=1)/2;
+            ans+=(long)n*(n-1)/2;
         }
 
 
