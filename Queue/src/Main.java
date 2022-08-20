@@ -65,7 +65,7 @@ public class Main {
 
                     }
                     else{
-                        sb.append(deque.pollFirst());
+                        sb.append(deque.pollLast());
 
                         while(!deque.isEmpty()){
                             sb.append(",").append(deque.pollLast());
