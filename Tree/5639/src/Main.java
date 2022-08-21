@@ -28,22 +28,26 @@ public class Main {
         if (node == null)
             return;
 
+
         postOrder(node.left);
         postOrder(node.right);
         System.out.println(node.num);
+
     }
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
 
-        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        Node node=new Node(Integer.parseInt(br.readLine()));
+
+        Node node = new Node(Integer.parseInt(br.readLine()));
 
         String str;
-        while(true){
-            str=br.readLine();
-            if(str.equals("")||str==null)
+        while (true) {
+            str = br.readLine();
+            if ( str == null || str.equals("") ) {
                 break;
+            }
             node.insert(Integer.parseInt(str));
         }
 
