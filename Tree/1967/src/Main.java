@@ -4,7 +4,7 @@ import java.io.*;
 public class Main {
 
     static int max=0;
-    static int max_node;
+    static int max_node=0;
     static int N;
 
     static class Node{
@@ -31,7 +31,7 @@ public class Main {
         graph=new ArrayList[N+1];
         visited=new boolean[N+1];
 
-        for(int i=1;i<=N;i++){
+        for(int i=0;i<=N;i++){
             graph[i]=new ArrayList<>();
         }
 
