@@ -4,6 +4,7 @@ import java.io.*;
 public class Main {
 
     static int max=0;
+    static int max_node;
     static int N;
 
     static class Node{
@@ -45,7 +46,16 @@ public class Main {
             graph[child].add(new Node(parents,edge));
         }
 
+        visited[1]=true;
+
         dfs(1,0);
+
+        visited=new boolean[N+1];
+        visited[max_node]=true;
+        dfs(max_node,0);
+        System.out.println(max);
+
+        br.close();
 
 
     }
@@ -53,14 +63,17 @@ public class Main {
 
     public static void dfs(int loc, int sum){
 
-        if(visited[loc]) {
-            if (sum > max) {
-                max = sum;
-                return;
-            }
+        if(max<sum){
+            max=sum;
+            max_node=loc;
         }
 
-
+        for(Node a:graph[loc]){
+            if(!visited[a.child]){
+                visited[a.child]=true;
+                dfs(a.child,sum+a.edge);
+            }
+        }
 
     }
 
