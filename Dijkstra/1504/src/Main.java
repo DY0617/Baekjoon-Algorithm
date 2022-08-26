@@ -68,6 +68,7 @@ public class Main {
         }
 
         dijkstraBreak(v1, v2);
+
         if (!arrive) {
             System.out.println(-1);
             System.exit(0);
@@ -110,7 +111,10 @@ public class Main {
         StringBuilder sb = new StringBuilder();
 
 
-        if (v1Dis > v2Dis) {
+        if(v1Dis==Integer.MAX_VALUE&&v2Dis==Integer.MAX_VALUE){
+            sb.append(-1);
+        }
+        else if (v1Dis > v2Dis) {
             sb.append(v2Dis);
         } else
             sb.append(v1Dis);
