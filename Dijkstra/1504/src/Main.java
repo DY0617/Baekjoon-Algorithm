@@ -12,7 +12,7 @@ public class Main {
     public static int v1, v2;
     public static boolean arrive;
 
-    public static class Edge implements Comparable<Edge> {
+    static class Edge implements Comparable<Edge> {
         int id, cost;
 
         public Edge(int id, int cost) {
