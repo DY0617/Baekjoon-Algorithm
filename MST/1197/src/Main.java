@@ -3,6 +3,8 @@ import java.io.*;
 
 public class Main {
 
+    static int[] parent;
+
     public static void main(String[] args) throws IOException {
 
         class Node implements Comparable<Node>{
@@ -26,7 +28,7 @@ public class Main {
         int v = Integer.parseInt(st.nextToken());
         int e = Integer.parseInt(st.nextToken());
 
-        ArrayList<Node> graph = new ArrayList;
+        ArrayList<Node> graph = new ArrayList<>();
 
 
 
@@ -40,14 +42,50 @@ public class Main {
 
         Collections.sort(graph);
 
-        int[] parent=new int[v+1];
+        parent=new int[v+1];
 
         for(int i=1;i<=v;i++)
             parent[i]=i;
 
         for(int i=0;i<e;i++){
             Node node=graph.get(i);
+            if (!isSameParent(node.a, node.b)) {
+                union(node.a, node.b);
+                weight += node.cost;
+            }
         }
 
+        bw.write(weight + "\n");
+
+        br.close();
+        bw.flush();
+        bw.close();
+
+    }
+
+    public static int find(int x) {
+        if (parent[x] == x) {
+            return x;
+        } else {
+            return parent[x] = find(parent[x]);
+        }
+    }
+
+    public static boolean isSameParent(int x, int y) {
+        x = find(x);
+        y = find(y);
+        if (x == y) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void union(int x, int y) {
+        x = find(x);
+        y = find(y);
+        if (x != y) {
+            parent[y] = x;
+        }
     }
 }
