@@ -8,8 +8,8 @@ public class Main {
     public static void main(String[] args) throws IOException{
 
         class Node{
-            int a,b;
-            Node(int a,int b){
+            double a,b;
+            Node(double a,double b){
                 this.a=a;
                 this.b=b;
             }
@@ -77,27 +77,28 @@ public class Main {
 
         for(int i=1;i<=m;i++){
             Node node=already.get(i-1);
-            int x=find(node.a);
-            int y=find(node.b);
-            parent[y]=x;
+            int x=find((int) node.a);
+            int y=find((int) node.b);
+            if(x!=y)
+                parent[y]=x;
         }
 
 
         double total=0;
 
-        for(int i=1;i<=n;i++){
-            NodeW node=mst.get(i-1);
+        for(int i=0;i<mst.size();i++){
+            NodeW node=mst.get(i);
             int x=find(node.start);
             int y=find(node.end);
 
 
             if(x!=y){
-                parent[y]=x;
                 total+=node.cost;
+                parent[y] = x;
             }
         }
 
-        bw.write(String.valueOf(total));
+        bw.write(String.format("%.2f", total) + "\n");
 
         bw.flush();
         bw.close();
@@ -112,6 +113,8 @@ public class Main {
             return x;
         return parent[x]=find(parent[x]);
     }
+
+
 
 
 
