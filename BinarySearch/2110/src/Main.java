@@ -20,5 +20,30 @@ public class Main {
         }
 
         Arrays.sort(house);
+
+        int start=1;
+        int end=house[n-1]-house[0]+1;
+
+        while(start<end){
+            int mid=(start+end)/2;
+
+            int count=1;
+            int last=house[0];
+            for(int i = 1; i < house.length; i++) {
+                int locate = house[i];
+
+                if(locate - last >= mid) {
+                    count++;
+                    last = locate;
+                }
+            }
+
+            if(count<m)
+                end=mid;
+            else
+                start=mid+1;
+        }
+
+        System.out.println(start-1);
     }
 }
