@@ -21,10 +21,8 @@ public class Main {
 
         int answer = 0;
 
-        boolean k = false;
 
         if (ccw(x1, y1, x2, y2, x3, y3) * ccw(x1, y1, x2, y2, x4, y4) == 0 && ccw(x3, y3, x4, y4, x1, y1) * ccw(x3, y3, x4, y4, x2, y2) == 0) {
-            k = true;
             if (Math.min(x1, x2) <= Math.max(x3, x4) &&
                     Math.min(x3, x4) <= Math.max(x1, x2) &&
                     Math.min(y3, y4) <= Math.max(y1, y2) &&
@@ -32,8 +30,7 @@ public class Main {
                 answer = 1;
             }
         }
-        if (ccw(x1, y1, x2, y2, x3, y3) * ccw(x1, y1, x2, y2, x4, y4) <= 0 && ccw(x3, y3, x4, y4, x1, y1) * ccw(x3, y3, x4, y4, x2, y2) <= 0) {
-            if (!k)
+        else if (ccw(x1, y1, x2, y2, x3, y3) * ccw(x1, y1, x2, y2, x4, y4) <= 0 && ccw(x3, y3, x4, y4, x1, y1) * ccw(x3, y3, x4, y4, x2, y2) <= 0) {
                 answer = 1;
         }
 
