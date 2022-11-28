@@ -30,6 +30,7 @@ public class Main {
                 cur = cur.childs.get(s);
             }
         }
+
         print(root, "");
     }
 
