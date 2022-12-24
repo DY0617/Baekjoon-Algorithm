@@ -67,6 +67,7 @@ public class Main {
     static int LCA(int a, int b) {
         int ah = depth[a];
         int bh = depth[b];
+
         while (ah > bh) {
             a = parent[a];
             ah--;
