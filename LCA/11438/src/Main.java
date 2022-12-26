@@ -84,7 +84,7 @@ public class Main {
         }
 
         //더 깊은 a를 2승씩 점프하며 두 노드의 depth를 맞춘 후, 맞춘 depth의 조상 노드로 대체한다.
-        for (int i = log - 1; i >= 0; i--) {
+        for (int i = log - 1; i > 0; i--) {
             if (Math.pow(2, i) <= depth[a] - depth[b]) {
                 a = parent[a][i]; // a를 2^i 번 째 조상 노드로 대체한다.
             }
